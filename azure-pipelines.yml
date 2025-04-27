@@ -1,0 +1,10 @@
+trigger:
+- main
+
+steps:
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'TMPA Lab(7c7ca74d-0312-4e4e-b805-e68ecb53a2a2)'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'az deployment sub create -n dp420deployment -l southeastasia --template-file main.bicep'
