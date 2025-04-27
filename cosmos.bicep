@@ -18,3 +18,16 @@ resource cosmos 'Microsoft.DocumentDB/databaseAccounts@2024-11-15' = {
     enableFreeTier: true
   }
 }
+
+resource database 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases@2024-11-15' = {
+  parent: cosmos
+  name: 'cosmicworks'
+  properties: {
+    resource: {
+      id: 'cosmicworks'
+    }
+    options: {
+      throughput: 1000
+    }
+  }
+}
